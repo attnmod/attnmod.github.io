@@ -101,7 +101,7 @@
   </p>
   <div class="col-12 text-center">
     <img class="img-fluid" src="./assets/img/SD15_ARHoM_s5_U1A1A2_7x11.jpg"></img>
-    <div class="fw-bold">Fig. 3</div>
+    <div class="col-12 text-center"><span class="fw-bold mx-1">Fig. 3</span> U1A1A2 AttnMod scan</div>
   </div>
 </div>
 </div>
@@ -110,7 +110,7 @@
 <div class="row">
   <h2>Seeding</h2>
   <p>
-    With fixed diffusion input, we conducted numerous single-block seed scans using the constant-rate AttnMod mentioned above, to study how the seed impacts the generation. The output correlates with both the AttnMod setup and the default generation in the leftmost column in Fig. 4, which is again decided by the seed. Therefore, a good AttnMod strategy is to start from a prompt and seed combination that generates an image with good visual layout. 
+    With fixed diffusion input, we check modding on numerous seeds using the constant-rate AttnMod mentioned above, to study how the seed impacts the generation. The output correlates with both the AttnMod setup and the default generation in the leftmost column in Fig. 4, which is again decided by the seed. Therefore, a good AttnMod strategy is to start from a prompt and seed combination that generates an image with good visual layout. 
   </p>
   <div class="col-12 text-center">
     <img class="img-fluid" src="./assets/img/seeds_6x1_1x12.jpg"></img>
@@ -152,7 +152,7 @@
 <div class="row">
   <h2>Multi-block Modding</h2>
   <p>
-    For the experiment over SD15, we pick the two attention blocks within the same transformer block, and mod them synchronously with the same setup. Two of such combinations are visualized in Fig. 7, which contains the individual AttnMod scans from each of the two attention blocks, then the joined AttnMod scan of them toward the right.
+    For SD15, we pick the two attention blocks within the same transformer block, and mod them synchronously with the same setup. Two of such combinations are visualized in Fig. 7 in rows, which contains the individual AttnMod scans from each of the two attention blocks, then the joined AttnMod scan of them toward the right.
   </p>
   <div class="col-12 text-center">
     <img class="img-fluid" src="./assets/img/L2only_M0A0_3600.jpg"></img>

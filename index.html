@@ -89,14 +89,14 @@
 <div class="content">
 <div class="row d-flex align-items-start">
   <h2>Approach</h2>
-  <p class="col-12 col-md-6 col-xl-4">
+  <p class="col-12 col-lg-6 col-xl-4">
     Imagine a human artist looking at the generated photo of a diffusion model, and hoping to create a painting out of it. There could be some feature of the object in the photo that the artist wants to emphasize, some color to disperse, some silhouette to twist, or some part of the scene to be materialized. These intentions can be viewed as the modification of the cross attention from the text prompt onto UNet, during the desoising diffusion. Motivated by the idea of creating new art styles mimicking the human artist in putting unusual emphasis on some composure component(s) of the scene, we design the attention modification process, AttnMod, as illustrated in Fig. 2
   </p>
-  <div class="col-12 col-md-6 col-xl-8 text-center">
+  <div class="col-12 col-lg-6 col-xl-8 text-center">
     <img class="img-fluid" src="./assets/img/attention_flow.jpg"></img>
     <div class="fw-bold">Fig. 2</div>
   </div>
-  <p class="col-12 col-md-6 col-xl-12">
+  <p class="col-12">
     In order to quantify the amount of attention used for conditioning, we introduce the attention multiplier. To better observe how the multiplier impacts the generation, we start with the simplest example. One arbitrary UNet attention block is selected to be modified, while the other blocks are fixed at the default attention which means a 1.0 multiplier. The selected block is then tested with the attention multiplier ranging from -20.0 to 50.0 at the beginning of the denoising diffusion. Within the denoising loop, the attention multiplier is further changed at a constant rate, ranging from -1.0 to 1.0. We select the "up_blocks.1.attentions.1.transformer_blocks.0.attn2.processor", or U1A1A2 for short, to be the modified attention block out of the Stable Diffusion 1.5 (SD15). The AttnMod result is as shown in Fig. 3. The original generation, with a starting attention multiplier of 1.0 and change rate of 0.0 per loop, is marked out at the center. The starting multiplier increases toward the right, while the change rate increases toward the bottom.
   </p>
   <div class="col-12 text-center">
@@ -134,11 +134,11 @@
     An important observation is how the AttnMod setup correlates across different text prompts. Further away from the center when the text prompt loses its influence to a certain degree, the outcome does not resemble the style of Picasso nor van Gogh. It is a new style. There are few such new styles in Fig. 6.
   </p>
   <div class="d-md-flex justify-content-evenly">
-  <div class="col-12 col-lg-6 text-center mx-1">
+  <div class="col-12 col-md-6 text-center mx-1">
     <img class="img-fluid" src="./assets/img/SD15_ARHiS_Picasso_U1A0A2_7x11.jpg"></img>
 	<div>(a) prompted Picasso</div>
   </div>
-  <div class="col-12 col-lg-6 text-center mx-1">
+  <div class="col-12 col-md-6 text-center mx-1">
     <img class="img-fluid" src="./assets/img/SD15_ARHiS_vanGogh_U1A0A2_7x11.jpg"></img>
 	<div>(b) prompted van Gogh</div>
   </div>
@@ -163,20 +163,14 @@
     Beyond the two-block attention modding, there are many more combinations, as well as other asynchronous modding methods to be explored. In Fig. 8, we share a slice of possible exploration, where all 32 attention blocks in SD15 are opened up for modding and start with 0 attention. In each denoising loop, one block is picked to gain 1.0 attention. The largest attention that a block can have is capped at 1.0. For 40-loop denoising, we show results with two different approaches in picking blocks. The first one is to pick the available block causing the most difference in the output, compared to the previous output, with 1.0 attention gain. This approach attempts to include as much as the text "conditioning" within the strategy boundaries. On the other hand, the second approach avoids the influence as much as possible. Both approaches generate new art styles, so do further tweaking this strategy or devising more sophisticated strategies.
   </p>
   <div class="d-md-flex justify-content-evenly">
-  <div class="col-12 col-md-4 col-lg-3 text-center">
-    <img class="img-fluid" src="./assets/img/SD15_ARHoM_s0_allA_c1_1s_40d_1a_desc.png"></img>
-  </div>
-  <div class="col-12 col-md-4 col-lg-3 text-center">
-    <img class="img-fluid" src="./assets/img/SD15_ARHoM_s0_allA_c1_1s_40d_1a_asc.png"></img>
-  </div>
-  </div>
-  <div class="d-md-flex justify-content-evenly my-1">
-  <div class="col-12 col-md-4 col-lg-3 text-center">
-    <video class="img-fluid" src="./assets/mp4/SD15_ARHoM_s0_allA_c1_1s_40d_1a_desc.mp4" autoplay controls muted loop playsinline></video>
+  <div class="col-12 col-md-5 col-lg-4 text-center">
+    <img class="img-fluid col-12" src="./assets/img/SD15_ARHoM_s0_allA_c1_1s_40d_1a_desc.png"></img>
+    <video class="img-fluid col-12 my-1" src="./assets/mp4/SD15_ARHoM_s0_allA_c1_1s_40d_1a_desc.mp4" autoplay controls muted loop playsinline></video>
     <div class="text-center">(a) picking most influential</div>
   </div>
-  <div class="col-12 col-md-4 col-lg-3 text-center">
-    <video class="img-fluid" src="./assets/mp4/SD15_ARHoM_s0_allA_c1_1s_40d_1a_asc.mp4" autoplay controls muted loop playsinline></video>
+  <div class="col-12 col-md-5 col-lg-4 text-center">
+    <img class="img-fluid col-12" src="./assets/img/SD15_ARHoM_s0_allA_c1_1s_40d_1a_asc.png"></img>
+    <video class="img-fluid col-12 my-1" src="./assets/mp4/SD15_ARHoM_s0_allA_c1_1s_40d_1a_asc.mp4" autoplay controls muted loop playsinline></video>
     <div class="text-center">(b) picking least influential</div>
   </div>
   </div>

@@ -28,7 +28,7 @@
     <a href="https://www.linkedin.com/in/jessysu/">Shih-Chieh Su</a>
   </p>
   <div class="d-md-flex justify-content-evenly mt-5">
-    <a href="" class="btn btn-dark text-light">
+    <a href="https://arxiv.org/abs/2409.10028" class="btn btn-dark text-light">
 	  <span class="icon me-1"><i class="ai ai-arxiv"></i></span>
       <span>Paper</span>
     </a>
@@ -62,29 +62,6 @@
 </div>
 </div>
 
-<!--
-<div class="content">
-<div class="row">
-  <h2>Background</h2>
-  <p>
-    The latent diffuser predicts better and better final outputs along denoising process, which can be used as animation frames.
-    However, the majority of the update is completed during the first few frames -- making the rest of the animation stall (Vid. 1).
-    In a different scenario, animation transits between two generated images via interpolating both the embedded prompts and seeded latents (Vid. 2).
-    While the image-to-image animation provides high quality morphology, it also comes with occasional disruptions and nonsense.
-  </p>
-  <div class="d-md-flex justify-content-evenly">
-  <div class="col-12 col-md-4 col-lg-3 text-center">
-    <video class="img-fluid" src="./assets/mp4/astronaut diffuse 2fps 20s.mp4" autoplay controls muted loop playsinline></video>
-    <div>Vid. 1</div>
-  </div>
-  <div class="col-12 col-md-4 col-lg-3 text-center">
-    <video class="img-fluid" src="./assets/mp4/img2img 100slices slerp.mp4" autoplay controls muted loop playsinline></video>
-    <div>Vid. 2</div>
-  </div>
-  </div>
-</div>
-</div>
--->
 
 <div class="content">
 <div class="row d-flex align-items-start">
@@ -160,7 +137,7 @@
     <div class="fw-bold">Fig. 7</div>
   </div>
   <p>
-    Beyond the two-block attention modding, there are many more combinations, as well as other asynchronous modding methods to be explored. In Fig. 8, we share a slice of possible exploration, where all 32 attention blocks in SD15 are opened up for modding and start with 0 attention. In each denoising loop, one block is picked to gain 1.0 attention. The largest attention that a block can have is capped at 1.0. For 40-loop denoising, we show results with two different approaches in picking blocks. The first one is to pick the available block causing the most difference in the output, compared to the previous output, with 1.0 attention gain. This approach attempts to include as much as the text "conditioning" within the strategy boundaries. On the other hand, the second approach avoids the influence as much as possible. Both approaches generate new art styles, so do further tweaking this strategy or devising more sophisticated strategies.
+    Beyond the two-block attention modding, there are many more combinations, as well as other asynchronous modding methods to be explored. In Fig. 8, we share a slice of possible exploration, where all 32 attention blocks in SD15 are opened up for modding and start with 0 attention. In each denoising loop, one block is picked to gain 1.0 attention. The largest attention that a block can have is capped at 1.0. For 40-loop denoising, we show results with two different approaches in picking blocks. The first one is to pick the available block causing the most difference in the output, compared to the previous output, to have 1.0 attention gain. This approach attempts to include as much as the text "conditioning" within the strategy boundaries. On the other hand, the second approach avoids the influence as much as possible. Both approaches generate new art styles, so do further tweaking this strategy or devising more sophisticated strategies.
   </p>
   <div class="d-md-flex justify-content-evenly">
   <div class="col-12 col-md-5 col-lg-4 text-center">
@@ -220,7 +197,7 @@
       title={AttnMod: Attention-Based New Art Styles}, 
       author={Shih-Chieh Su},
       year={2024},
-      eprint={},
+      eprint={2409.10028},
       archivePrefix={arXiv},
       primaryClass={cs.CV}
 }

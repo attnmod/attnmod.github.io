@@ -73,7 +73,7 @@
     <img class="img-fluid" src="./assets/img/attention_flow.jpg"></img>
     <div class="fw-bold">Fig. 2</div>
   </div>
-  <p class="col-12">
+  <p class="col-12 text-break">
     In order to quantify the amount of attention used for conditioning, we introduce the attention multiplier. To better observe how the multiplier impacts the generation, we start with the simplest example. One arbitrary UNet attention block is selected to be modified, while the other blocks are fixed at the default attention which means a 1.0 multiplier. The selected block is then tested with the attention multiplier ranging from -20.0 to 50.0 at the beginning of the denoising diffusion. Within the denoising loop, the attention multiplier is further changed at a constant rate, ranging from -1.0 to 1.0. We select the "up_blocks.1.attentions.1.transformer_blocks.0.attn2.processor", or U1A1A2 for short, to be the modified attention block out of the Stable Diffusion 1.5 (SD15). The AttnMod result is as shown in Fig. 3. The original generation, with a starting attention multiplier of 1.0 and change rate of 0.0 per loop, is marked out at the center. The starting multiplier increases toward the right, while the change rate increases toward the bottom.
   </p>
   <div class="col-12 text-center">

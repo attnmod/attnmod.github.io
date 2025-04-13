@@ -39,17 +39,13 @@
 	  <span class="icon me-1"><i class="fab fa-github"></i></span>
       <span>Code</span>
     </a>
-    <a href="#ref-block" class="btn btn-dark text-light m-1">
-	  <span class="icon me-1"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
-      <span>Refs</span>
-    </a>
   </div>
   <div class="container pt-5">
     <div class="col-12 text-center">
       <img class="img-fluid" src="./assets/img/SD15_ARHoM_s5_3x7_512.jpg"></img>
       <div class="text-start">
 	    <span class="fw-bold">Fig. 1</span>
-	    <span class="ms-1">Images from the same model, same checkpoints, same prompt, same seed, same guidance, same scheduler with same iterations. Why they look so different?</span>
+	    <span class="ms-1">Images from the same diffuser, same prompt, same seed, same guidance, same scheduler with same iterations. Why they look so different?</span>
 	  </div>
     </div>
   </div>
@@ -70,7 +66,7 @@
 <div class="row d-flex align-items-start">
   <h2>Approach</h2>
   <p class="col-12 col-lg-6 col-xl-4">
-    Imagine a human artist looking at the generated photo of a diffusion model, and hoping to create a painting out of it. There could be some feature of the object in the photo that the artist wants to emphasize, some color to disperse, some silhouette to twist, or some part of the scene to be materialized. These intentions can be viewed as the modification of the cross attention from the text prompt onto UNet, during the desoising diffusion. Motivated by the idea of creating new art styles mimicking the human artist in putting unusual emphasis on some composure component(s) of the scene, we design the attention modification process, AttnMod, as illustrated in Fig. 2
+    Imagine a human artist looking at the generated photo of a diffusion model, and hoping to create a painting out of it. There could be some feature of the object in the photo that the artist wants to emphasize, some color to disperse, some silhouette to twist, or some part of the scene to be materialized. These intentions can be viewed as the modification of the cross attention from the text prompt onto UNet, during the desoising diffusion. Motivated by the idea of creating new art styles mimicking the human artist in putting unusual emphasis on some composure component(s) of the scene, we design the attention modification process, AttnMod, as illustrated in Fig. 2.
   </p>
   <div class="col-12 col-lg-6 col-xl-8 text-center">
     <img class="img-fluid" src="./assets/img/attention_flow.jpg"></img>
@@ -85,9 +81,9 @@
   </div>
   <div class="col-12 text-center">
     <video class="img-fluid col-12 my-1" src="./assets/mp4/AttnScan_Animate_640_f0.5.mp4" autoplay controls muted loop playsinline></video>
-    <div class="col-12 text-center"><span class="fw-bold mx-1">Vid. 1</span> AttnMod scans of various attention blocks, same seed</div>
+    <div class="col-12 text-center"><span class="fw-bold mx-1">Vid. 1</span> AttnMod scans of various attention blocks. Everything so far uses the same diffuser and inputs</div>
     <video class="img-fluid col-12 my-1" src="./assets/mp4/SlideOut_2048_f0.5.mp4" autoplay controls muted loop playsinline></video>
-    <div class="col-12 text-center"><span class="fw-bold mx-1">Vid. 2</span> Samples in the scans</div>
+    <div class="col-12 text-center"><span class="fw-bold mx-1">Vid. 2</span> Samples from the scans in Vid. 1</div>
   </div>
 </div>
 </div>
